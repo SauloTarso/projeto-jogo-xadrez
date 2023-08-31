@@ -1,7 +1,7 @@
 package xadrez.pecas;
 
-import TabuleiroDoJogo.Posicao;
-import TabuleiroDoJogo.Tabuleiro;
+import tabuleiroDoJogo.Posicao;
+import tabuleiroDoJogo.Tabuleiro;
 import xadrez.Cor;
 import xadrez.PecaDeXadrez;
 

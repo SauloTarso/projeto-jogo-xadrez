@@ -1,6 +1,6 @@
 package xadrez;
 
-import TabuleiroDoJogo.Posicao;
+import tabuleiroDoJogo.Posicao;
 
 public class PosicaoDoXadrez {
 

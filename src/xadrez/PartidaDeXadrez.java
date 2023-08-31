@@ -1,8 +1,8 @@
 package xadrez;
 
-import TabuleiroDoJogo.Peca;
-import TabuleiroDoJogo.Posicao;
-import TabuleiroDoJogo.Tabuleiro;
+import tabuleiroDoJogo.Peca;
+import tabuleiroDoJogo.Posicao;
+import tabuleiroDoJogo.Tabuleiro;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
 
@@ -23,6 +23,12 @@ public class PartidaDeXadrez {
 			}
 		}
 		return matriz;
+	}
+	
+	public boolean [][] possiveisMovimentos(PosicaoDoXadrez posicaoDeOrigem){
+		Posicao posicao = posicaoDeOrigem.posicionar();
+		validarPosicaoDeOrigem(posicao);
+		return tabuleiro.peca(posicao).possiveisMovimentos();
 	}
 
 	public PecaDeXadrez executarMovimentoDaPecaDeXadrez(PosicaoDoXadrez posicaoDeOrigem,
