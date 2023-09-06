@@ -48,16 +48,22 @@ public class UI {
 		}
 
 	}
-	
+
 	public static void imprimirPartida(PartidaDeXadrez partidaDeXadrez, List<PecaDeXadrez> capturadas) {
 		imprimirTabuleiro(partidaDeXadrez.getPecas());
 		System.out.println();
 		imprimirPecasCapturadas(capturadas);
 		System.out.println();
 		System.out.println("Turno: " + partidaDeXadrez.getTurno());
-		System.out.println("Esperando o jogador: " + partidaDeXadrez.getJogadorAtual());
-		if (partidaDeXadrez.getXeque()) {
-			System.out.println("XEQUE!");
+		if (!partidaDeXadrez.getXequeMate()) {
+			System.out.println("Esperando o jogador: " + partidaDeXadrez.getJogadorAtual());
+			if (partidaDeXadrez.getXeque()) {
+				System.out.println("XEQUE!");
+			}
+		}
+		else {
+			System.out.println("XEQUE-MATE");
+			System.out.println("VENCEDOR: " + partidaDeXadrez.getJogadorAtual());
 		}
 	}
 
@@ -98,9 +104,10 @@ public class UI {
 		}
 		System.out.print(" ");
 	}
-	
+
 	private static void imprimirPecasCapturadas(List<PecaDeXadrez> capturado) {
-		List<PecaDeXadrez> branca = capturado.stream().filter(x -> x.getCor() == Cor.BRANCO).collect(Collectors.toList());
+		List<PecaDeXadrez> branca = capturado.stream().filter(x -> x.getCor() == Cor.BRANCO)
+				.collect(Collectors.toList());
 		List<PecaDeXadrez> preta = capturado.stream().filter(x -> x.getCor() == Cor.PRETO).collect(Collectors.toList());
 
 		System.out.println("Peças capturadas:");
