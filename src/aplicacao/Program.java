@@ -40,10 +40,17 @@ public class Program {
 				if (capturarPeca != null) {
 					capturadas.add(capturarPeca);
 				}
-				
-				if(partidaDeXadrez.getPromocao() != null) {
+
+				if (partidaDeXadrez.getPromocao() != null) {
 					System.out.print("Digite a peça de promoção (B/C/T/Q): ");
-					String tipo = ler.nextLine();
+					String tipo = ler.nextLine().toUpperCase();
+
+					while (!tipo.equals("B") && !tipo.equals("C") && !tipo.equals("T") && !tipo.equals("Q")) {
+						System.out.print("Valor invalido! Digite a peça de promoção (B/C/T/Q): ");
+						tipo = ler.nextLine().toUpperCase();
+
+					}
+
 					partidaDeXadrez.trocarPecaPromovida(tipo);
 				}
 			} catch (XadrezException e) {
